@@ -1,0 +1,70 @@
+### List all brands
+GET http://localhost:8080/api/brands
+Accept: application/json
+
+
+### Create brand
+POST http://localhost:8080/api/brands
+Content-Type: application/json
+
+{
+  "name": "Suzuki",
+  "country": "Japan"
+}
+
+
+
+### Get brand by id
+GET http://localhost:8080/api/brands/9a72f50f-72f0-4246-81eb-a95a10f5cea1
+Accept: application/json
+
+
+
+### Update brand
+PUT http://localhost:8080/api/brands/9a72f50f-72f0-4246-81eb-a95a10f5cea1
+Content-Type: application/json
+
+{
+  "name": "Volvo Updated",
+  "country": "Sweden"
+}
+
+
+### Delete brand
+DELETE http://localhost:8080/api/brands/9a72f50f-72f0-4246-81eb-a95a10f5cea1
+
+
+### List all models
+GET http://localhost:8080/api/models
+Accept: application/json
+
+
+### Create model under brand
+POST http://localhost:8080/api/brands/51e1408d-dcf6-4b91-ade7-d6cef0a43426/models
+Content-Type: application/json
+
+{
+  "modelName": "911",
+  "productionYear": 2022
+}
+
+
+### List models for brand
+GET http://localhost:8080/api/brands/d10ae236-5272-4627-9722-d270f57b01a8/models
+Accept: application/json
+
+### Get model by id
+GET http://localhost:8080/api/models/4ac3a2f7-cfe3-497f-a1be-fec901c6eaff
+Accept: application/json
+
+### Update model under brand
+PUT http://localhost:8080/api/brands/25659b99-35eb-4b5a-a25a-13f7a6f2e7d4/models/dd6e6ee5-3901-4d3a-b2f3-bc71371123d6
+Content-Type: application/json
+
+{
+  "modelName": "c70 Facelift",
+  "productionYear": 2023
+}
+
+### Delete model
+DELETE http://localhost:8080/api/models/df84418f-a513-4a59-8fd2-47fdaabd819c
