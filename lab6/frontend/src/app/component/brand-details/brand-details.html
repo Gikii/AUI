@@ -1,0 +1,47 @@
+<div *ngIf="brand">
+  <div style="background-color: #f8f9fa; padding: 20px; border-radius: 5px; margin-bottom: 20px;">
+    <h2>{{ brand.name }}</h2>
+    <p>Kraj pochodzenia: <strong>{{ brand.country }}</strong></p>
+    <button [routerLink]="['/brands']" style="padding: 5px 10px;">⬅ Wróć do listy</button>
+  </div>
+
+  <hr>
+
+  <div style="display: flex; justify-content: space-between; align-items: center;">
+    <h3>Modele ({{ models.length }})</h3>
+    <button [routerLink]="['/brands', brand.id, 'models', 'add']" 
+            style="background-color: #28a745; color: white; border: none; padding: 10px; border-radius: 4px;">
+      + Dodaj Model do {{ brand.name }}
+    </button>
+  </div>
+
+  <table border="1" style="width: 100%; border-collapse: collapse; margin-top: 10px;" *ngIf="models.length > 0; else noModels">
+    <thead>
+      <tr style="background-color: #eee;">
+        <th style="padding: 10px;">Nazwa Modelu</th>
+        <th style="padding: 10px;">Rok Produkcji</th>
+        <th style="padding: 10px;">Akcje</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let model of models">
+        <td style="padding: 10px;">{{ model.modelName }}</td>
+        <td style="padding: 10px;">{{ model.productionYear }}</td>
+        <td style="padding: 10px; text-align: center;">
+          <button [routerLink]="['/brands', brand.id, 'models', model.id]">Info</button>
+          
+          <button [routerLink]="['/brands', brand.id, 'models', model.id, 'edit']" style="margin: 0 5px;">Edytuj</button>
+          
+          <button (click)="deleteModel(model.id!)" style="color: red;">Usuń</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #noModels>
+    <p style="padding: 20px; background-color: #fff3cd; border: 1px solid #ffeeba;">
+      Ta marka nie ma jeszcze żadnych modeli. Dodaj pierwszy!
+    </p>
+  </ng-template>
+
+</div>

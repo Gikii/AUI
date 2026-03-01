@@ -1,0 +1,11 @@
+<nav class="navbar">
+  <div class="nav-brand">🚗 System Pojazdów (Lab 5)</div>
+  <div class="nav-links">
+    <a routerLink="/brands" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Lista Marek</a>
+    <a routerLink="/brands/add" routerLinkActive="active">Dodaj Markę</a>
+  </div>
+</nav>
+
+<div class="main-container">
+  <router-outlet></router-outlet>
+</div>

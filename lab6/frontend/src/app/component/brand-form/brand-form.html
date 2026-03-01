@@ -1,0 +1,18 @@
+<div style="max-width: 400px;">
+    <h2>{{ isEditMode ? 'Edytuj Markę' : 'Dodaj Nową Markę' }}</h2>
+    
+    <form (ngSubmit)="onSubmit()">
+      <div style="margin-bottom: 10px;">
+        <label>Nazwa:</label><br>
+        <input type="text" [(ngModel)]="brand.name" name="name" required style="width: 100%;">
+      </div>
+  
+      <div style="margin-bottom: 10px;">
+        <label>Kraj:</label><br>
+        <input type="text" [(ngModel)]="brand.country" name="country" required style="width: 100%;">
+      </div>
+  
+      <button type="submit">{{ isEditMode ? 'Zapisz zmiany' : 'Utwórz' }}</button>
+      <button type="button" routerLink="/brands" style="margin-left: 10px;">Anuluj</button>
+    </form>
+  </div>

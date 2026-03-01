@@ -1,0 +1,18 @@
+<div style="max-width: 400px;">
+    <h2>{{ isEditMode ? 'Edytuj Model' : 'Dodaj Nowy Model' }}</h2>
+  
+    <form (ngSubmit)="onSubmit()">
+      <div style="margin-bottom: 10px;">
+        <label>Nazwa Modelu:</label><br>
+        <input type="text" [(ngModel)]="model.modelName" name="modelName" required style="width: 100%;">
+      </div>
+  
+      <div style="margin-bottom: 10px;">
+        <label>Rok Produkcji:</label><br>
+        <input type="number" [(ngModel)]="model.productionYear" name="productionYear" required style="width: 100%;">
+      </div>
+  
+      <button type="submit">{{ isEditMode ? 'Zapisz' : 'Utwórz' }}</button>
+      <button type="button" [routerLink]="['/brands', brandId]" style="margin-left: 10px;">Anuluj</button>
+    </form>
+  </div>

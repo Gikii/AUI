@@ -1,0 +1,34 @@
+<div class="container" style="padding: 20px;">
+  <h2>Lista Marek</h2>
+  
+  <button routerLink="/brands/add" style="margin-bottom: 20px; padding: 10px;">
+    + Dodaj nową markę
+  </button>
+
+  <table border="1" style="width: 100%; border-collapse: collapse;" *ngIf="brands.length > 0; else noData">
+    <thead>
+      <tr style="background-color: #f2f2f2;">
+        <th style="padding: 10px;">Nazwa</th>
+        <th style="padding: 10px;">Kraj</th>
+        <th style="padding: 10px;">Akcje</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let brand of brands">
+        <td style="padding: 10px;">{{ brand.name }}</td>
+        <td style="padding: 10px;">{{ brand.country }}</td>
+        <td style="padding: 10px; text-align: center;">
+          <button [routerLink]="['/brands', brand.id]">Szczegóły</button>
+          
+          <button [routerLink]="['/brands', brand.id, 'edit']" style="margin: 0 5px;">Edytuj</button>
+          
+          <button (click)="deleteBrand(brand.id!)" style="color: red;">Usuń</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #noData>
+    <p>Brak danych. Dodaj pierwszą markę!</p>
+  </ng-template>
+</div>
